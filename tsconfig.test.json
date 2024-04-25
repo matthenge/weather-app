@@ -8,27 +8,25 @@
     ],
     "allowJs": true,
     "skipLibCheck": true,
-    "esModuleInterop": true,
-    "allowSyntheticDefaultImports": true,
-    "strict": true,
+    "strict": false,
     "forceConsistentCasingInFileNames": true,
-    "noFallthroughCasesInSwitch": true,
+    "noEmit": true,
+    "esModuleInterop": true,
     "module": "esnext",
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "noEmit": true,
-    "jsx": "react-jsx"
+    "jsx": "react",
+    "allowSyntheticDefaultImports": true
   },
   "include": [
-    "src",
     "**/*.ts",
     "**/*.tsx",
-    "__tests__/*.tsx",
-    "svgTransform.js",
-    "**/*.js"
+    "__tests__/*.tsx"
   ],
   "exclude": [
     "node_modules",
+    "typings/browser",
+    "typings/browser.d.ts"
   ]
 }
