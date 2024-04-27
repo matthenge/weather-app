@@ -2,5 +2,11 @@
   "temperature": "Temperature",
   "conditions": "Conditions",
   "location": "Location",
-  "toggleLanguage": "Toggle Language"
+  "toggleLanguage": "Language",
+  "humidity": "Humidity",
+  "wind": "Wind",
+  "pressure": "Pressure",
+  "sunrise": "Sunrise",
+  "sunset": "Sunset",
+  "visibility": "Visibility"
 }
