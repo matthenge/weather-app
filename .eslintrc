@@ -34,12 +34,19 @@
         "extensions": [".js", ".jsx", ".ts", ".tsx"]
       }
     ],
+    "@typescript-eslint/naming-convention": [
+      "error",
+      {
+        "selector": "variableLike", "format": ["snake_case", "camelCase", "PascalCase", "UPPER_CASE"]
+      }
+    ],
     "react/jsx-props-no-spreading": 0,
     "react/require-default-props": 0,
     "react/no-unused-prop-types": "warn",
     "class-methods-use-this": 0,
     "linebreak-style": ["error", "unix"],
     "no-async-promise-executor": 0,
+    "import/imports-first": ["error", "absolute-first"],
     "no-console": 1,
     "no-unused-vars": 1,
     "no-const-assign": 1,

@@ -2,5 +2,11 @@
   "temperature": "Joto",
   "conditions": "Hali ya Hewa",
   "location": "Mahali",
-  "toggleLanguage": "Badilisha Lugha"
+  "toggleLanguage": "Lugha",
+  "humidity": "Unyevu",
+  "wind": "Upepo",
+  "pressure": "Shinikizo la Hewa",
+  "sunrise": "Macheo",
+  "sunset": "Machweo",
+  "visibility": "Uonekanaji"
 }

@@ -1,0 +1,136 @@
+.weather-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.main-section {
+    display: flex;
+    justify-content: space-between;
+    gap: 3%;
+    align-items: flex-start;
+    margin-top: 40px;
+    width: 100%;
+}
+
+.weather-summary {
+    flex: 3;
+    background: rgb(255, 255, 255);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 20px;
+    gap: 20px;
+}
+
+.summary-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.weather-text {
+    color: #626262;
+}
+
+.main-summary {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 20px;
+}
+
+.divider {
+    border: 1px solid #E5E5E5;
+}
+
+.main-temp {
+    font-weight: 500;
+    font-size: 80px;
+}
+
+.summary-footer {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    color: #626262;
+}
+
+.summary-details {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    margin-left: 20px;
+    color: #626262;
+}
+
+.summary-conditions {
+    font-size: 26px;
+}
+
+.weather-icon img {
+    width: 120px;
+    height: 120px;
+}
+
+.weather-details {
+    flex: 1;
+    background: rgb(255, 255, 255);
+    border-radius: 10px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.weather-element {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    width: 100%;
+}
+
+.element-details {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex: 2;
+}
+
+.element-image {
+    flex: 1;
+}
+
+.element-name {
+    color: #626262;
+    font-size: 16px;
+}
+
+.element-value {
+    font-size: 20px;
+}
+
+.element-image img {
+    width: 50px;
+    height: 50px;
+}
+
+.divider-section {
+    width: 100%;
+}
+
+.element-divider {
+    border: 1px solid #E5E5E5;
+}
+
+.details {
+    color: #626262;
+    font-size: 18px;
+    padding-left: 10px;
+    padding-bottom: 20px;
+}

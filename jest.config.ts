@@ -15,7 +15,7 @@ module.exports = {
     "!*.ts",
     "!*.js",
   ],
-  "coveragePathIgnorePatterns": [
+  coveragePathIgnorePatterns: [
     "<rootDir>/src/reportWebVitals.ts",
     "<rootDir>/src/mocks/fileMock.ts",
     "<rootDir>/src/mocks/styleMock.ts",
