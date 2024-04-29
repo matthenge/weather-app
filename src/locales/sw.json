@@ -8,5 +8,8 @@
   "pressure": "Shinikizo la Hewa",
   "sunrise": "Macheo",
   "sunset": "Machweo",
-  "visibility": "Uonekanaji"
+  "visibility": "Uonekanaji",
+  "details": "Maelezo",
+  "current": "Hali ya hewa sasa",
+  "feelsLike": "Inahisi kama"
 }

@@ -2,21 +2,23 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9a85dee5-7478-4df9-940a-dfa8d69320fe" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.eslintrc" beforeDir="false" afterPath="$PROJECT_DIR$/.eslintrc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/styles/App.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/jest.config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/jest.config.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.css" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/__tests__/App.test.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/__tests__/App.test.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/__tests__/LanguageContext.test.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/__tests__/LanguageContext.test.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/__tests__/WeatherCard.test.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/__tests__/WeatherCard.test.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/__tests__/WeatherData.test.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/__tests__/WeatherData.test.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/api/WeatherData.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/WeatherData.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/styles/LanguageButton.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/styles/LanguageButton.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/styles/SearchBar.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/styles/SearchBar.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/styles/WeatherCard.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/styles/WeatherCard.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/LanguageButton.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/LanguageButton.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/SearchBar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/SearchBar.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/WeatherCard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/WeatherCard.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/locales/en.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/locales/en.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/locales/sw.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/locales/sw.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
@@ -37,27 +39,28 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Project.color": "30054d",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "/Users/jmaruhi/Projects/weather-app/src/assets/images",
-    "node.js.detected.package.eslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "prettierjs.PrettierConfiguration.Package": "/Users/jmaruhi/Projects/weather-app/node_modules/prettier",
-    "settings.editor.selected.configurable": "settings.javascript.prettier",
-    "ts.external.directory.path": "/Users/jmaruhi/Projects/weather-app/node_modules/typescript/lib",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Project.color&quot;: &quot;30054d&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/jmaruhi/Projects/weather-app/src/assets/images&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;prettierjs.PrettierConfiguration.Package&quot;: &quot;/Users/jmaruhi/Projects/weather-app/node_modules/prettier&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;settings.javascript.prettier&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;/Users/jmaruhi/Projects/weather-app/node_modules/typescript/lib&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/assets/images" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/assets/styles" />
       <recent name="$PROJECT_DIR$/src" />
       <recent name="$PROJECT_DIR$/src/__tests__" />
     </key>

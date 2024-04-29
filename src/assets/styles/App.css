@@ -1,0 +1,22 @@
+.App {
+  text-align: center;
+  margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: Futura, sans-serif;
+  flex-flow: wrap;
+  flex-wrap: wrap;
+}
+
+@media screen and (max-width: 768px) {
+  .App {
+    justify-content: unset;
+    margin-top: 2px;
+  }
+}
+
+@media screen and (max-width: 620px) {
+
+}

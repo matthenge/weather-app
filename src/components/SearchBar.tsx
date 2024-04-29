@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import "../assets/styles/SearchBar.css";
-import search_icon from "../assets/images/search.png";
 import LanguageButton from "./LanguageButton";
 
 interface SearchBarProps {
@@ -13,6 +12,7 @@ const SearchBar: React.FC<SearchBarProps> = ({ onSearch, location }) => {
 
   const handleSearch = () => {
     onSearch(city);
+    setCity("");
   };
 
   return (
@@ -25,12 +25,12 @@ const SearchBar: React.FC<SearchBarProps> = ({ onSearch, location }) => {
             placeholder="Enter city name"
             value={city}
             onChange={(e) => setCity(e.target.value)}
+            onKeyDown={(e) => {
+              if (e.key === "Enter") handleSearch();
+            }}
           />
-          <div className="search-btn" onClick={handleSearch}>
-            <img src={search_icon} alt="Search Icon" />
-          </div>
         </div>
-        <div>
+        <div className="language-switcher">
           <LanguageButton />
         </div>
       </div>

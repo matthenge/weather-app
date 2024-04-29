@@ -1,9 +1,75 @@
 .language-btn {
-    background: #000000;
-    border-radius: 10px;
-    color: rgb(255, 255, 255);
+    background-color: #000000;
+    border-radius: 99px;
     font-weight: bold;
     padding: 4px 10px;
     height: 40px;
-    width: 80px;
+    width: 100px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+    position: relative;
+}
+
+.language-btn.en {
+    background-color: #000000;
+    color: #000000;
+}
+
+.language-btn.sw {
+    background-color: #000000;
+    color: #000000;
+}
+
+.language-btn .thumb {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    text-shadow: 0 1px 0 rgba(0, 0, 0, .06);
+    height: 35px;
+    width: 50px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 99px;
+    transform: translate(0, -50%);
+    transition: left 0.15s ease;
+    position: absolute;
+    left: 3px;
+    top: 50%;
+}
+
+.language-btn.sw .thumb {
+    left: calc(100px - 53px);
+}
+
+.language-btn .other-space {
+    color: white;
+    height: 35px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.language-btn.sw .other-space {
+    right: calc(100px - 53px);
+}
+
+@media screen and (max-width: 1024px) {
+    .language-btn {
+        width: 70px;
+        padding: 4px 3px;
+    }
+
+    .language-btn .thumb {
+        width: 35px;
+    }
+
+    .language-btn.sw .thumb {
+        left: calc(70px - 38px);
+    }
+
+    .language-btn.sw .other-space {
+        right: calc(70px - 38px);
+    }
 }

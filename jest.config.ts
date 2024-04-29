@@ -20,6 +20,7 @@ module.exports = {
     "<rootDir>/src/mocks/fileMock.ts",
     "<rootDir>/src/mocks/styleMock.ts",
     "<rootDir>/src/index.tsx",
+    "<rootDir>/build/",
   ],
   coverageReporters: ["text-summary", "lcov", "html"],
   transform: {

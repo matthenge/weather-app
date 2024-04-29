@@ -1,13 +1,6 @@
 import React from "react";
 import { render } from "@testing-library/react";
-import { LanguageProvider, useLanguage } from "../context/LanguageContext";
-
-enum Language {
-  EN = "en",
-  SW = "sw",
-}
-
-// let renderedHook: RenderHookResult<unknown, { language: Language }>;
+import { LanguageProvider } from "../context/LanguageContext";
 
 const LanguageConsumer: React.FC = () => {
   return <div>Current Language: English</div>;

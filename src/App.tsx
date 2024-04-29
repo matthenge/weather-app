@@ -1,13 +1,12 @@
 import React from "react";
 import { LanguageProvider } from "./context/LanguageContext";
 import WeatherCard from "./components/WeatherCard";
-import "./App.css";
+import "./assets/styles/App.css";
 
 const App: React.FC = () => {
   return (
     <LanguageProvider>
-      <div className="App">
-        {/*<h1>Weather Dashboard</h1>*/}
+      <div className="App" data-testid="App">
         <WeatherCard />
       </div>
     </LanguageProvider>
