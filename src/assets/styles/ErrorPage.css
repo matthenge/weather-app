@@ -1,0 +1,23 @@
+.error-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 40px;
+    background: rgb(255, 255, 255);
+    border-radius: 10px;
+    padding: 200px 0;
+    width: 100%;
+    margin-bottom: 40px;
+    gap: 20px;
+}
+
+.error-image img {
+    width: 250px;
+    height: 250px;
+}
+
+.main-error {
+    font-size: 35px;
+    color: rgb(4,181,252);
+}

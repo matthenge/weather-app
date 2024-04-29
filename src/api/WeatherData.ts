@@ -19,6 +19,7 @@ export const fetchWeatherData = async (
   timeStamp: number;
   sunrise: number;
   sunset: number;
+  isSuccessful: boolean;
 }> => {
   try {
     const response = await axios.get(
@@ -40,6 +41,7 @@ export const fetchWeatherData = async (
       timeStamp: dt,
       sunrise: sys.sunrise,
       sunset: sys.sunset,
+      isSuccessful: true,
     };
   } catch (error) {
     console.error("Error fetching weather data:", error);
@@ -57,6 +59,7 @@ export const fetchWeatherData = async (
       timeStamp: 0,
       sunrise: 0,
       sunset: 0,
+      isSuccessful: false,
     };
   }
 };

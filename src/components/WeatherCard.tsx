@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import dayjs from "dayjs";
+import LoadingOverlay from "react-loading-overlay-ts";
 import { useLanguage } from "../context/LanguageContext";
 import SearchBar from "./SearchBar";
 import { fetchWeatherData } from "../api/WeatherData";
@@ -18,8 +19,9 @@ import temperature_icon from "../assets/images/temperature.png";
 import snow_icon from "../assets/images/snow.png";
 import thunderstorm_icon from "../assets/images/thunderstorm.png";
 import visibility_icon from "../assets/images/visibility.png";
+import ErrorPage from "./ErrorPage";
 
-interface WeatherCardProps {
+interface WeatherData {
   temperature: number;
   conditions: string;
   humidity: number;
@@ -33,10 +35,13 @@ interface WeatherCardProps {
   timeStamp: number;
   sunrise: number;
   sunset: number;
+  isSuccessful: boolean;
 }
 
 const WeatherCard: React.FC = () => {
-  const [weatherData, setWeatherData] = useState<WeatherCardProps>({
+  const [searchItem, setSearchItem] = useState<string>("Nairobi");
+  const [loading, setLoading] = useState<boolean>(false);
+  const [weatherData, setWeatherData] = useState<WeatherData>({
     conditions: "",
     temperature: 0,
     humidity: 0,
@@ -50,6 +55,7 @@ const WeatherCard: React.FC = () => {
     timeStamp: 0,
     sunrise: 0,
     sunset: 0,
+    isSuccessful: false,
   });
   const now = dayjs().format("h:mm A");
   const [weatherIcon, setWeatherIcon] = useState<string>(clear_icon);
@@ -96,150 +102,179 @@ const WeatherCard: React.FC = () => {
     const data = await fetchWeatherData(city);
     handleIcon(data.iconCode);
     await setWeatherData(data);
+    setLoading(false);
   };
 
+  useEffect(() => {
+    setLoading(true);
+    handleSearch(searchItem).then((r) => {
+      console.log(r);
+    });
+  }, [searchItem]);
+
   return (
-    <div className="weather-card">
-      <SearchBar onSearch={handleSearch} location={weatherData.cityName} />
-      <div className="main-section">
-        <div className="weather-summary">
-          <div className="summary-header">
-            <div className="weather-text">Current Weather</div>
-            <div>{now}</div>
-          </div>
-          <div>
-            <hr className="divider" />
-          </div>
-          <div className="main-summary">
-            <div className="weather-icon">
-              <img src={weatherIcon} alt="Weather Icon" />
-            </div>
-            {/*<div className="location">{weatherData.cityName}</div>*/}
-            <div>
-              <div className="main-temp">
-                {Math.floor(weatherData.temperature)}°C
+    <LoadingOverlay
+      className="loader"
+      active={loading}
+      spinner
+      text="Fetching weather data"
+    >
+      <div className="weather-card">
+        <SearchBar onSearch={setSearchItem} location={weatherData.cityName} />
+        {weatherData.isSuccessful ? (
+          <>
+            <div className="location-details">{weatherData.cityName}</div>
+            <div className="main-section">
+              <div className="weather-summary">
+                <div className="summary-header">
+                  <div className="weather-text">{messages.current}</div>
+                  <div>{now}</div>
+                </div>
+                <div>
+                  <hr className="divider" />
+                </div>
+                <div className="main-summary">
+                  <div className="weather-icon">
+                    <img src={weatherIcon} alt="Weather Icon" />
+                  </div>
+                  <div>
+                    <div className="main-temp">
+                      {Math.floor(weatherData.temperature)}°C
+                    </div>
+                  </div>
+                  <div className="summary-details">
+                    <div className="summary-conditions">
+                      {weatherData.conditions}
+                    </div>
+                    <div>
+                      {messages.feelsLike} {Math.floor(weatherData.feelsLike)}°C
+                    </div>
+                  </div>
+                </div>
+                <div className="summary-footer">
+                  <div>{weatherData.description}</div>
+                </div>
+              </div>
+              <div className="weather-details">
+                <div className="details">{messages.details}</div>
+                <div className="weather-element">
+                  <div className="element-image">
+                    <img src={temperature_icon} alt="weather element" />
+                  </div>
+                  <div className="element-details">
+                    <div className="element-name">{messages.temperature}</div>
+                    <div className="element-value">
+                      {Math.floor(weatherData.temperature)}°C
+                    </div>
+                  </div>
+                </div>
+                <div className="divider-section">
+                  <hr className="element-divider" />
+                </div>
+                <div className="weather-element">
+                  <div className="element-image">
+                    <img src={humidity_icon} alt="weather element" />
+                  </div>
+                  <div className="element-details">
+                    <div className="element-name">{messages.humidity}</div>
+                    <div className="element-value">{weatherData.humidity}%</div>
+                  </div>
+                </div>
+                <div className="divider-section">
+                  <hr className="element-divider" />
+                </div>
+                <div className="weather-element">
+                  <div className="element-image">
+                    <img src={weatherIcon} alt="weather element" />
+                  </div>
+                  <div className="element-details">
+                    <div className="element-name">{messages.conditions}</div>
+                    <div className="element-value">
+                      {weatherData.conditions}
+                    </div>
+                  </div>
+                </div>
+                <div className="divider-section">
+                  <hr className="element-divider" />
+                </div>
+                <div className="weather-element">
+                  <div className="element-image">
+                    <img src={wind_icon} alt="weather element" />
+                  </div>
+                  <div className="element-details">
+                    <div className="element-name">{messages.wind}</div>
+                    <div className="element-value">
+                      {Math.floor(weatherData.wind)} km/h
+                    </div>
+                  </div>
+                </div>
+                <div className="divider-section">
+                  <hr className="element-divider" />
+                </div>
+                <div className="weather-element">
+                  <div className="element-image">
+                    <img src={pressure_icon} alt="weather element" />
+                  </div>
+                  <div className="element-details">
+                    <div className="element-name">{messages.pressure}</div>
+                    <div className="element-value">
+                      {weatherData.pressure} hPa
+                    </div>
+                  </div>
+                </div>
+                <div className="divider-section">
+                  <hr className="element-divider" />
+                </div>
+                <div className="weather-element">
+                  <div className="element-image">
+                    <img src={sunrise_icon} alt="weather element" />
+                  </div>
+                  <div className="element-details">
+                    <div className="element-name">{messages.sunrise}</div>
+                    <div className="element-value">
+                      {formatTimestamp(weatherData.sunrise)}
+                    </div>
+                  </div>
+                </div>
+                <div className="divider-section">
+                  <hr className="element-divider" />
+                </div>
+                <div className="weather-element">
+                  <div className="element-image">
+                    <img src={sunset_icon} alt="weather element" />
+                  </div>
+                  <div className="element-details">
+                    <div className="element-name">{messages.sunset}</div>
+                    <div className="element-value">
+                      {formatTimestamp(weatherData.sunset)}
+                    </div>
+                  </div>
+                </div>
+                <div className="divider-section">
+                  <hr className="element-divider" />
+                </div>
+                <div className="weather-element">
+                  <div className="element-image">
+                    <img src={visibility_icon} alt="weather element" />
+                  </div>
+                  <div className="element-details">
+                    <div className="element-name">{messages.visibility}</div>
+                    <div className="element-value">
+                      {Math.floor(weatherData.visibility / 1000)} km
+                    </div>
+                  </div>
+                </div>
+                <div className="divider-section">
+                  <hr className="element-divider" />
+                </div>
               </div>
             </div>
-            <div className="summary-details">
-              <div className="summary-conditions">{weatherData.conditions}</div>
-              <div>Feels like {Math.floor(weatherData.feelsLike)}°C</div>
-            </div>
-          </div>
-          <div className="summary-footer">
-            <div>{weatherData.description}</div>
-          </div>
-        </div>
-        <div className="weather-details">
-          <div className="details">Details</div>
-          <div className="weather-element">
-            <div className="element-image">
-              <img src={temperature_icon} alt="weather element" />
-            </div>
-            <div className="element-details">
-              <div className="element-name">{messages.temperature}</div>
-              <div className="element-value">
-                {Math.floor(weatherData.temperature)}°C
-              </div>
-            </div>
-          </div>
-          <div className="divider-section">
-            <hr className="element-divider" />
-          </div>
-          <div className="weather-element">
-            <div className="element-image">
-              <img src={humidity_icon} alt="weather element" />
-            </div>
-            <div className="element-details">
-              <div className="element-name">{messages.humidity}</div>
-              <div className="element-value">{weatherData.humidity}%</div>
-            </div>
-          </div>
-          <div className="divider-section">
-            <hr className="element-divider" />
-          </div>
-          <div className="weather-element">
-            <div className="element-image">
-              <img src={weatherIcon} alt="weather element" />
-            </div>
-            <div className="element-details">
-              <div className="element-name">{messages.conditions}</div>
-              <div className="element-value">{weatherData.conditions}</div>
-            </div>
-          </div>
-          <div className="divider-section">
-            <hr className="element-divider" />
-          </div>
-          <div className="weather-element">
-            <div className="element-image">
-              <img src={wind_icon} alt="weather element" />
-            </div>
-            <div className="element-details">
-              <div className="element-name">{messages.wind}</div>
-              <div className="element-value">
-                {Math.floor(weatherData.wind)} km/h
-              </div>
-            </div>
-          </div>
-          <div className="divider-section">
-            <hr className="element-divider" />
-          </div>
-          <div className="weather-element">
-            <div className="element-image">
-              <img src={pressure_icon} alt="weather element" />
-            </div>
-            <div className="element-details">
-              <div className="element-name">{messages.pressure}</div>
-              <div className="element-value">{weatherData.pressure} hPa</div>
-            </div>
-          </div>
-          <div className="divider-section">
-            <hr className="element-divider" />
-          </div>
-          <div className="weather-element">
-            <div className="element-image">
-              <img src={sunrise_icon} alt="weather element" />
-            </div>
-            <div className="element-details">
-              <div className="element-name">{messages.sunrise}</div>
-              <div className="element-value">
-                {formatTimestamp(weatherData.sunrise)}
-              </div>
-            </div>
-          </div>
-          <div className="divider-section">
-            <hr className="element-divider" />
-          </div>
-          <div className="weather-element">
-            <div className="element-image">
-              <img src={sunset_icon} alt="weather element" />
-            </div>
-            <div className="element-details">
-              <div className="element-name">{messages.sunset}</div>
-              <div className="element-value">
-                {formatTimestamp(weatherData.sunset)}
-              </div>
-            </div>
-          </div>
-          <div className="divider-section">
-            <hr className="element-divider" />
-          </div>
-          <div className="weather-element">
-            <div className="element-image">
-              <img src={visibility_icon} alt="weather element" />
-            </div>
-            <div className="element-details">
-              <div className="element-name">{messages.visibility}</div>
-              <div className="element-value">
-                {Math.floor(weatherData.visibility / 1000)} km
-              </div>
-            </div>
-          </div>
-          <div className="divider-section">
-            <hr className="element-divider" />
-          </div>
-        </div>
+          </>
+        ) : (
+          !loading && <ErrorPage />
+        )}
       </div>
-    </div>
+    </LoadingOverlay>
   );
 };
 

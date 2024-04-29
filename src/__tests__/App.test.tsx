@@ -6,7 +6,7 @@ import App from "../App";
 describe("renders learn react link", () => {
   it("Renders correctly", async () => {
     render(<App />);
-    const linkElement = screen.getByText("Weather Dashboard");
+    const linkElement = screen.getByTestId("App");
     expect(linkElement).toBeInTheDocument();
   });
 });

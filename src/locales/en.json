@@ -8,5 +8,8 @@
   "pressure": "Pressure",
   "sunrise": "Sunrise",
   "sunset": "Sunset",
-  "visibility": "Visibility"
+  "visibility": "Visibility",
+  "details": "Details",
+  "current": "Current Weather",
+  "feelsLike": "Feels like"
 }
